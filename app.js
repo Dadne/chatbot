@@ -9,7 +9,7 @@ const swaggerUI = require("swagger-ui-express");
 const openApiConfigration = require("./docs/swagger");
 const {dbConnect} = require("./configuration/db")
 const app = express();
-const port = 3000
+const port = process.env.APP_PORT
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
