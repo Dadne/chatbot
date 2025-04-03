@@ -14,7 +14,8 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      description: "Development chatbot",
+      url: `https://chatbot-zwor.onrender.com/`,
+      description: "Chatbot",
     },
   ],
   components: {
