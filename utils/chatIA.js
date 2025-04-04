@@ -1,7 +1,7 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const TOKEN_IA = process.env.TOKEN_IA;
-const MODEL_IA = process.env.MODEL_IA; // The Gemini 1.5 models are versatile and work with multi-turn conversations (like chat)
+const MODEL_IA = process.env.MODEL_IA;
 
 const genAI = new GoogleGenerativeAI(TOKEN_IA);
 

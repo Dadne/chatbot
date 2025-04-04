@@ -14,7 +14,7 @@ const swaggerDefinition = {
   },
   servers: [
     {
-      url: `https://chatbot-zwor.onrender.com/`,
+      url: process.env.ENV === 'prod' ? `https://chatbot-zwor.onrender.com/` :`http://localhost:${process.env.APP_PORT}/`,
       description: "Chatbot",
     },
   ],
