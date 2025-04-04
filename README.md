@@ -2,6 +2,11 @@
 
 This repository contains the source code for a **Chat Bot API**. The project is designed to provide backend services for a chat bot, leveraging modern technologies and frameworks.
 
+## Prerequisites
+
+- **Node.js**: Version 18 or higher is required. You can download it from https://nodejs.org/
+- **MongoDB**: A running instance of MongoDB is required.
+
 ## Installation
 
 Follow these steps to set up the project locally:
@@ -24,7 +29,7 @@ Follow these steps to set up the project locally:
 
 ## Usage
 
-This API provides endpoints for interacting with the chat bot. You can extend its functionality or integrate it into a frontend application.
+This API provides endpoints for interacting with the chat bot.
 
 ## Technologies Used
 

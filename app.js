@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const chatbot = require('./routes/chatbot');
 const swaggerUI = require("swagger-ui-express");
 const openApiConfigration = require("./docs/swagger");
+const basicAuth = require("express-basic-auth");
 const {dbConnect} = require("./configuration/db")
 const app = express();
 const port = process.env.APP_PORT
@@ -22,15 +23,24 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/chatbot', chatbot);
 
+const userDoc = process.env.DOC_USER
+const passDoc = process.env.DOC_PASS
+
 const options = {
   swaggerOptions: {
     url: "/api-doc/swagger.json",
   },
 };
+const swaggerAuth = basicAuth({
+  users: { [userDoc]:passDoc }, // Usuario y contraseña estáticos (se puede mover a .env)
+  challenge: true, // Muestra el prompt en el navegador
+  unauthorizedResponse: "No autorizado" // Mensaje de error personalizado
+});
 
 app.get("/api-doc/swagger.json", (req, res) => res.json(openApiConfigration));
 app.use(
   "/api-doc",
+  swaggerAuth,
   swaggerUI.serveFiles(null, options),
   swaggerUI.setup(null, options)
 );
